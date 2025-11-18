@@ -1,0 +1,284 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #181818;
+    --secondary-color: #8d8d8d;
+    --bg-dark: linear-gradient(45deg, #000000 0%, #464646 100%);
+    --bg-card: rgba(79, 79, 79, 0.4);
+    --text-primary: linear-gradient(135deg, #9d00ff, #00e5ff);
+    --text-secondary: #b6b6b6;
+    --accent-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --shadow: 0 0 40px rgba(255, 255, 255, 0.5);
+}
+
+body {
+    font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+
+}
+
+.animated-background-continuous {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(45deg, #323232, #000000);
+    background-size: 300% 300%;
+    animation: gradientShiftContinuous 30s ease-in-out infinite normal;
+}
+
+@keyframes gradientShiftContinuous {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 0%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Floating geometric shapes */
+.geometric-shapes {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+}
+
+.shape {
+    position: absolute;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    animation: floatShape 10s linear infinite;
+}
+
+.shape:nth-child(1) {
+    width: 100px;
+    height: 100px;
+    left: 10%;
+    animation-delay: -1s;
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.shape:nth-child(2) {
+    width: 60px;
+    height: 60px;
+    left: 30%;
+    animation-delay: -4s;
+    transform: rotate(45deg);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.shape:nth-child(3) {
+    width: 80px;
+    height: 80px;
+    left: 70%;
+    animation-delay: -2s;
+    transform: rotate(90deg);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.shape:nth-child(4) {
+    width: 100px;
+    height: 100px;
+    left: 80%;
+    animation-delay: -8s;
+    transform: rotate(135deg);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.shape:nth-child(5) {
+    width: 50px;
+    height: 50px;
+    left: 40%;
+    animation-delay: 0s;
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.shape:nth-child(6) {
+    width: 90px;
+    height: 90px;
+    left: 20%;
+    animation-delay: -3s;
+    transform: rotate(45deg);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.shape:nth-child(7) {
+    width: 80px;
+    height: 80px;
+    left: 60%;
+    animation-delay: -5s;
+    transform: rotate(90deg);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.shape:nth-child(8) {
+    width: 40px;
+    height: 40px;
+    left: 90%;
+    animation-delay: -7s;
+    transform: rotate(135deg);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.shape:nth-child(9) {
+    width: 90px;
+    height: 90px;
+    left: 50%;
+    animation-delay: -9s;
+    transform: rotate(180deg);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+@keyframes floatShape {
+    from {
+        transform: translateY(-100px) rotate(360deg);
+        opacity: 0;
+    }
+
+    10%,
+    90% {
+        opacity: 1;
+    }
+
+    to {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+    }
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100% auto;
+    width: 100% auto;
+}
+
+.profile-container {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    margin: 50px;
+}
+
+.profile {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 5px solid #ffffff;
+    box-shadow: var(--shadow);
+    object-fit: cover;
+    animation: dance 2s ease infinite;
+}
+
+
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.7);
+    }
+
+    50% {
+        box-shadow: 0 0 0 10px rgba(76, 175, 80, 0);
+    }
+}
+
+@keyframes dance {
+
+    0%,
+    100% {
+        transform: scale(1.1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+.container {
+    max-width: 600px;
+    margin: 40px;
+    background: var(--bg-card);
+    backdrop-filter: blur(20px);
+    border-radius: 25px;
+    padding: 40px 100px 40px 100px;
+    box-shadow: var(--shadow);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    z-index: 10;
+}
+
+.name {
+    text-align: center;
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    background: var(--text-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.username {
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.contact {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    z-index: 10;
+    margin: 20px;
+}
+
+.social-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(251, 251, 251, 0.8);
+    color: var(--text-primary);
+    text-decoration: none;
+}
+
+.social-btn:hover {
+    transform: scale(1.1);
+    transition: 0.5s;
+}
+
+.social-btn.facebook:hover {
+    background: rgb(24, 119, 242);
+    box-shadow: 0 0 20px rgba(24, 119, 242, 0.8);
+}
+
+.social-btn.instagram:hover {
+    background: #f09433;
+    background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    background: -webkit-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f09433', endColorstr='#bc1888', GradientType=1);
+    box-shadow: 0 0 20px rgba(245, 3, 189, 0.8);
+}
+
+.social-btn.spotify:hover {
+    background: rgb(29, 185, 84);
+    box-shadow: 0 0 20px rgba(29, 185, 84, 0.8);
+}
